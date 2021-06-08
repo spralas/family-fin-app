@@ -16,43 +16,41 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 public class AccountOwnerServiceTest {
 
-    @Mock
-    private AccountOwnerPort accountOwnerPort;
+  @Mock
+  private AccountOwnerPort accountOwnerPort;
 
-    @InjectMocks
-    private AccountOwnerService accountOwnerService;
+  @InjectMocks
+  private AccountOwnerService accountOwnerService;
 
-    @Test
-    void createAccountOwner_IdIsGenerated(){
-        // given
-        AccountOwner accountOwner = AccountOwner.builder()
-                                                .firstName("John")
-                                                .lastName("First")
-                                                .build();
-        when(accountOwnerPort.createAccountOwner(eq(accountOwner))).thenReturn(accountOwner);
+  @Test
+  void createAccountOwner_IdIsGenerated() {
+    // given
+    AccountOwner accountOwner = AccountOwner.builder()
+        .firstName("John")
+        .lastName("First")
+        .build();
+    when(accountOwnerPort.createAccountOwner(eq(accountOwner))).thenReturn(accountOwner);
 
+    // when
+    AccountOwner result = accountOwnerService.createAccountOwner(accountOwner);
 
-        // when
-        AccountOwner result = accountOwnerService.createAccountOwner(accountOwner);
+    // then
+    assertThat(result.getId()).isNotNull();
+  }
 
-        // then
-        assertThat(result.getId()).isNotNull();
-    }
+  @Test
+  void createAccountOwner_OwnerIsCreated() {
+    // given
+    AccountOwner accountOwner = AccountOwner.builder()
+        .firstName("John")
+        .lastName("First")
+        .build();
+    when(accountOwnerPort.createAccountOwner(eq(accountOwner))).thenReturn(accountOwner);
 
-    @Test
-    void createAccountOwner_OwnerIsCreated(){
-        // given
-        AccountOwner accountOwner = AccountOwner.builder()
-                                                .firstName("John")
-                                                .lastName("First")
-                                                .build();
-        when(accountOwnerPort.createAccountOwner(eq(accountOwner))).thenReturn(accountOwner);
+    // when
+    accountOwnerService.createAccountOwner(accountOwner);
 
-
-        // when
-        accountOwnerService.createAccountOwner(accountOwner);
-
-        // then
-        verify(accountOwnerPort).createAccountOwner(eq(accountOwner));
-    }
+    // then
+    verify(accountOwnerPort).createAccountOwner(eq(accountOwner));
+  }
 }

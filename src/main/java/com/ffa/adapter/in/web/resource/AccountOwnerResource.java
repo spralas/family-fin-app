@@ -8,7 +8,6 @@ import lombok.Data;
 @Data
 @Builder
 public class AccountOwnerResource {
-  @NotNull
   private UUID id;
 
   @NotNull

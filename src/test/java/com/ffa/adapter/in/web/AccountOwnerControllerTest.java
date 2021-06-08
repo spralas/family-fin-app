@@ -12,6 +12,7 @@ import com.ffa.application.port.in.CreateAccountOwnerUseCase;
 import com.ffa.domain.AccountOwner;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -34,13 +35,11 @@ public class AccountOwnerControllerTest {
   void createAccountOwner_ReturnStatus200() throws Exception {
     // given
     AccountOwnerResource accountOwnerResource = AccountOwnerResource.builder()
-                                                     .id(UUID.randomUUID())
                                                      .firstName("Mark")
                                                      .lastName("Snow")
                                                      .build();
 
     AccountOwner accountOwner = AccountOwner.builder()
-                                            .id(accountOwnerResource.getId())
                                             .firstName(accountOwnerResource.getFirstName())
                                             .lastName(accountOwnerResource.getLastName())
                                             .build();
@@ -58,13 +57,11 @@ public class AccountOwnerControllerTest {
   void createAccountOwner_ReturnSavedAccountOwner() throws Exception {
     // given
     AccountOwnerResource accountOwnerResource = AccountOwnerResource.builder()
-                                                                    .id(UUID.randomUUID())
                                                                     .firstName("Mark")
                                                                     .lastName("Snow")
                                                                     .build();
 
     AccountOwner accountOwner = AccountOwner.builder()
-                                            .id(accountOwnerResource.getId())
                                             .firstName(accountOwnerResource.getFirstName())
                                             .lastName(accountOwnerResource.getLastName())
                                             .build();

@@ -5,7 +5,6 @@ import com.ffa.application.port.in.CreateAccountOwnerUseCase;
 import com.ffa.domain.AccountOwner;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,6 @@ public class AccountOwnerController {
   @PostMapping("/create-account-owner")
   AccountOwnerResource createAccountOwner(@Valid @RequestBody AccountOwnerResource accountOwnerResource){
     AccountOwner accountOwner = AccountOwner.builder()
-                                            .id(accountOwnerResource.getId())
                                             .firstName(accountOwnerResource.getFirstName())
                                             .lastName(accountOwnerResource.getLastName())
                                             .build();
