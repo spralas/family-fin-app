@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ffa.adapter.in.web.resource.IncomeResource;
 import com.ffa.application.port.in.CreateIncomeUseCase;
+import com.ffa.application.port.in.GetIncomeUseCase;
 import com.ffa.domain.Income;
 import java.math.BigDecimal;
 import java.time.Month;
@@ -30,6 +31,9 @@ public class IncomeControllerTest {
 
   @MockBean
   private CreateIncomeUseCase createIncomeUseCase;
+
+  @MockBean
+  private GetIncomeUseCase getIncomeUseCase;
 
   @Test
   void createAccountOwner_ReturnStatus200() throws Exception {

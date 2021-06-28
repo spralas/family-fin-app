@@ -6,10 +6,8 @@ import static org.mockito.Mockito.when;
 
 import com.ffa.adapter.out.persistence.accountowner.AccountOwnerJpaEntity;
 import com.ffa.adapter.out.persistence.accountowner.AccountOwnerJpaRepository;
-import com.ffa.adapter.out.persistence.accountowner.AccountOwnerMapper;
 import com.ffa.adapter.out.persistence.accountowner.AccountOwnerPersistenceAdapter;
 import com.ffa.domain.AccountOwner;
-import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/account-owner")
+@RequestMapping("account-owner")
 @RequiredArgsConstructor
 public class AccountOwnerController {
   private final CreateAccountOwnerUseCase createAccountOwnerUseCase;
